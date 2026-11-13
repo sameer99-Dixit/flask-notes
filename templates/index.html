@@ -3,18 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Flask Notes</title>
+  <title>ShopEasy</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-  <main class="card">
-    <h1>My Flask Notes</h1>
-    <div class="row">
-      <input id="text" placeholder="Write a note and press Enter" autocomplete="off">
-      <button id="add">Add</button>
+  <header class="topbar">
+    <a class="logo" href="/">Shop<span>Easy</span></a>
+    <input id="search" class="search" placeholder="Search for products...">
+    <a class="toplink" href="/dashboard">Seller Dashboard</a>
+    <button id="cartBtn" class="cart-btn">🛒 Cart <span id="cartCount" class="badge">0</span></button>
+  </header>
+
+  <nav id="chips" class="chips"></nav>
+
+  <main class="container">
+    <div class="toolbar">
+      <h2 id="resultTitle">All products</h2>
+      <select id="sort">
+        <option value="">Sort: Featured</option>
+        <option value="price_asc">Price: Low to High</option>
+        <option value="price_desc">Price: High to Low</option>
+        <option value="rating">Rating</option>
+      </select>
     </div>
-    <ul id="list"></ul>
+    <section id="grid" class="grid"></section>
   </main>
+
+  <aside id="drawer" class="drawer">
+    <div class="drawer-head">
+      <h3>Your Cart</h3>
+      <button id="closeCart" class="icon-btn">✕</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="drawer-foot">
+      <div class="total-row"><span>Total</span><strong id="cartTotal">₹0</strong></div>
+      <input id="customer" placeholder="Your name">
+      <button id="checkout" class="primary">Place Order</button>
+      <p id="message" class="message"></p>
+    </div>
+  </aside>
+
   <script src="{{ url_for('static', filename='app.js') }}"></script>
 </body>
 </html>

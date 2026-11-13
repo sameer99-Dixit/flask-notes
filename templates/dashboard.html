@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seller Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <a class="logo" href="/">Shop<span>Easy</span> <small>Seller</small></a>
+    <a class="toplink" href="/">← Back to store</a>
+  </header>
+
+  <main class="container">
+    <h2>Dashboard <small class="muted">(auto-refreshes every 5s)</small></h2>
+
+    <section class="kpis">
+      <div class="kpi"><span>Orders</span><strong id="kOrders">0</strong></div>
+      <div class="kpi"><span>Revenue</span><strong id="kRevenue">₹0</strong></div>
+      <div class="kpi"><span>Units sold</span><strong id="kUnits">0</strong></div>
+    </section>
+
+    <section class="panels">
+      <div class="panel">
+        <h3>Top products</h3>
+        <div id="top"></div>
+      </div>
+      <div class="panel">
+        <h3>Recent orders</h3>
+        <table>
+          <thead><tr><th>#</th><th>Customer</th><th>Total</th></tr></thead>
+          <tbody id="recent"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+</body>
+</html>
